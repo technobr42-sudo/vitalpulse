@@ -2,11 +2,13 @@ import os
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
+from typing import Optional, List, Dict
 
-app = FastAPI(title="VitalPulse")
+app = FastAPI(title="VitalPulse AI Engine")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+templates = Jinja2Templates(directory=os.path.join(BASE_DIR, "templates"))
 templates = Jinja2Templates(directory=os.path.join(BASE_DIR, "templates"))
 
 class ProfileData(BaseModel):
